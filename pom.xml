@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.apache.jena</groupId>
+  <artifactId>jena-examples</artifactId>
+  <version>0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>Apache Jena Examples</name>
+
+  <properties>
+    <tdb.version>0.9.0-incubating-SNAPSHOT</tdb.version>
+    <jdk.version>1.6</jdk.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.jena</groupId>
+      <artifactId>jena-tdb</artifactId>
+      <version>${tdb.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>${jdk.version}</source>
+          <target>${jdk.version}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-eclipse-plugin</artifactId>
+        <version>2.8</version>
+        <configuration>
+         <buildOutputDirectory>${project.build.directory}/classes-eclipse</buildOutputDirectory>
+         <downloadSources>true</downloadSources>
+         <downloadJavadocs>false</downloadJavadocs>
+         <useProjectReferences>false</useProjectReferences>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>apache-snapshots-repo</id>
+      <url>https://repository.apache.org/content/repositories/snapshots/</url>
+    </repository>
+    <repository>
+      <id>apache-releases-repo</id>
+      <url>https://repository.apache.org/content/repositories/releases/</url>
+    </repository>
+    <repository>
+      <id>repo-jena-dev</id>
+      <url>http://openjena.org/repo-dev</url>
+    </repository>
+  </repositories>
+
+</project>
