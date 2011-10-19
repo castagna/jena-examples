@@ -11,7 +11,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 public class Example_01 {
 
     public static void main(String[] args) {
-        InputStream in = getResourceAsStream(Example_01.class);
+        InputStream in = getResourceAsStream(Example_01.class, "data.ttl");
         
         RIOT.init() ;
 
@@ -29,9 +29,9 @@ public class Example_01 {
         model.write(System.out, "N-TRIPLES");
     }
 
-    public static InputStream getResourceAsStream(Class<?> clazz) {
+    public static InputStream getResourceAsStream(Class<?> clazz, String filename) {
         String pkg = clazz.getPackage().getName().replaceAll("\\.", File.separator); 
-        InputStream in = clazz.getClassLoader().getResourceAsStream(pkg + File.separator + "data.ttl");
+        InputStream in = clazz.getClassLoader().getResourceAsStream(pkg + File.separator + filename);
         return in;
     }
     

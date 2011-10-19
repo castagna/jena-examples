@@ -12,7 +12,7 @@ import com.hp.hpl.jena.graph.Triple;
 public class Example_04 {
 
     public static void main(String[] args) {
-        InputStream in = Example_01.getResourceAsStream(Example_01.class);
+        InputStream in = Example_01.getResourceAsStream(Example_01.class, "data.ttl");
         RiotReader.parseTriples(in, Lang.TURTLE, null, new SinkPrint<Triple>(System.out));
     }
 

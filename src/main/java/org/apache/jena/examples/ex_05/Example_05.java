@@ -14,7 +14,7 @@ import com.hp.hpl.jena.graph.Graph;
 public class Example_05 {
 
     public static void main(String[] args) {
-        InputStream in = Example_01.getResourceAsStream(Example_01.class);
+        InputStream in = Example_01.getResourceAsStream(Example_01.class, "data.ttl");
         Graph graph = Factory.createGraphMem();
         RiotReader.parseTriples(in, Lang.TURTLE, null, new SinkTriplesToGraph(graph));
         RiotWriter.writeTriples(System.out, graph);
