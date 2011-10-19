@@ -9,12 +9,25 @@
   <name>Apache Jena Examples</name>
 
   <properties>
+    <jena.version>2.6.5-incubating-SNAPSHOT</jena.version>
+    <arq.version>2.8.9-incubating-SNAPSHOT</arq.version>
     <tdb.version>0.9.0-incubating-SNAPSHOT</tdb.version>
     <jdk.version>1.6</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
+    <!-- Not strictly necessary, but I want Jena sources in my IDE -->
+    <dependency>
+      <groupId>org.apache.jena</groupId>
+      <artifactId>jena-core</artifactId>
+      <version>${jena.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.jena</groupId>
+      <artifactId>jena-arq</artifactId>
+      <version>${arq.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.apache.jena</groupId>
       <artifactId>jena-tdb</artifactId>
