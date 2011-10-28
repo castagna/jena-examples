@@ -1,0 +1,21 @@
+@prefix : <http://example.org/> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+
+:alice
+    a           foaf:Person ;
+    foaf:name   "Alice" ;
+    foaf:mbox   <mailto:alice@example.org> ; 
+    foaf:knows  :bob ;
+    foaf:knows  :charlie ;
+    foaf:knows  :snoopy ;
+    .
+
+:bob
+    foaf:name   "Bob" ;
+    foaf:knows  :charlie ; 
+    .
+
+:charlie
+    foaf:name   "Charlie" ;
+    foaf:knows  :alice ; 
+    .
