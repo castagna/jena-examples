@@ -44,6 +44,8 @@ public class ExampleIO_01 {
         model.write(System.out, "RDF/XML-ABBREV");
         System.out.println("\n---- N-Triples ----");
         model.write(System.out, "N-TRIPLES");
+        System.out.println("\n---- RDF/JSON ----");
+        model.write(System.out, "RDF/JSON");
     }
     
 }
