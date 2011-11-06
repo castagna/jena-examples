@@ -14,6 +14,7 @@
     <tdb.version>0.9.0-incubating-SNAPSHOT</tdb.version>
     <larq.version>0.2.2-incubating-SNAPSHOT</larq.version>
     <java-rdfa.version>0.4.2-RC2</java-rdfa.version>
+    <jena-jung.version>0.1.1</jena-jung.version>
     <jdk.version>1.6</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -52,6 +53,13 @@
       <groupId>net.rootdev</groupId>
       <artifactId>java-rdfa-htmlparser</artifactId>
       <version>${java-rdfa.version}</version>
+    </dependency>
+    
+    <!-- This is for ExampleJUNG -->
+    <dependency>
+      <groupId>net.rootdev</groupId>
+      <artifactId>JenaJung</artifactId>
+      <version>${jena-jung.version}</version>
     </dependency>
   </dependencies>
 
