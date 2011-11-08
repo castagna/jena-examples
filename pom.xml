@@ -15,6 +15,8 @@
     <larq.version>0.2.2-incubating-SNAPSHOT</larq.version>
     <java-rdfa.version>0.4.2-RC2</java-rdfa.version>
     <jena-jung.version>0.1.1</jena-jung.version>
+    <clerezza-rdf.jena.serializer.version>0.10-incubating-SNAPSHOT</clerezza-rdf.jena.serializer.version>
+    <clerezza-rdf.jena.parser.version>0.11-incubating-SNAPSHOT</clerezza-rdf.jena.parser.version>
     <jdk.version>1.6</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -55,12 +57,26 @@
       <version>${java-rdfa.version}</version>
     </dependency>
     
-    <!-- This is for ExampleJUNG -->
+    <!-- This is for ExampleJUNG-* -->
     <dependency>
       <groupId>net.rootdev</groupId>
       <artifactId>JenaJung</artifactId>
       <version>${jena-jung.version}</version>
     </dependency>
+
+    <!-- This is for ExampleClerezza-* -->
+    <dependency>
+      <groupId>org.apache.clerezza</groupId>
+      <artifactId>rdf.jena.parser</artifactId>
+      <version>${clerezza-rdf.jena.parser.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.clerezza</groupId>
+      <artifactId>rdf.jena.serializer</artifactId>
+      <version>${clerezza-rdf.jena.serializer.version}</version>
+    </dependency>
+    
   </dependencies>
 
   <build>
