@@ -32,13 +32,17 @@ public class ExampleARQ_02 {
 
     public static void main(String[] args) {
         FileManager.get().addLocatorClassLoader(ExampleARQ_02.class.getClassLoader());
-        Model model = FileManager.get().loadModel("org/apache/jena/examples/ex_01/data.ttl");
+        Model model = FileManager.get().loadModel("data/data.ttl");
 
         String queryString = "SELECT * { ?s ?p ?o }";
         Query query = QueryFactory.create(queryString);
         QueryExecution qexec = QueryExecutionFactory.create(query, model);
         try {
             ResultSetRewindable results = ResultSetFactory.makeRewindable(qexec.execSelect());
+
+            System.out.println("---- XML ----");
+            ResultSetFormatter.outputAsXML(System.out, results);
+            results.reset();
 
             System.out.println("---- Text ----");
             ResultSetFormatter.out(System.out, results);

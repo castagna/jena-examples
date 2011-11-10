@@ -17,6 +17,9 @@
     <jena-jung.version>0.1.1</jena-jung.version>
     <clerezza-rdf.jena.serializer.version>0.10-incubating-SNAPSHOT</clerezza-rdf.jena.serializer.version>
     <clerezza-rdf.jena.parser.version>0.11-incubating-SNAPSHOT</clerezza-rdf.jena.parser.version>
+    <clerezza-rdf.jena.commons.version>0.6-incubating-SNAPSHOT</clerezza-rdf.jena.commons.version>
+    <slf4j.version>1.6.4</slf4j.version>
+    <log4j.version>1.2.16</log4j.version>
     <jdk.version>1.6</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -62,6 +65,12 @@
       <groupId>net.rootdev</groupId>
       <artifactId>JenaJung</artifactId>
       <version>${jena-jung.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.hp.hpl.jena</groupId>
+          <artifactId>jena</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <!-- This is for ExampleClerezza-* -->
@@ -75,6 +84,39 @@
       <groupId>org.apache.clerezza</groupId>
       <artifactId>rdf.jena.serializer</artifactId>
       <version>${clerezza-rdf.jena.serializer.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.apache.clerezza</groupId>
+      <artifactId>rdf.jena.commons</artifactId>
+      <version>${clerezza-rdf.jena.commons.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.hp.hpl.jena</groupId>
+          <artifactId>jena</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- Logging: SL4J -> Log4j -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4j.version}</version>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+      <optional>true</optional>
     </dependency>
     
   </dependencies>

@@ -68,7 +68,7 @@ public class ExampleTDB_04 {
         model.add(ResourceFactory.createProperty("foo:x1"), RDFS.label, "X1");
 
         // this does it too
-        in = fm.open("org/apache/jena/examples/ex_20/data.nt");
+        in = fm.open("data/data.nt");
         model.read(in, "", "N-TRIPLES");
 
         dsg.close();
