@@ -23,7 +23,7 @@ public class ExampleLARQ_01 {
 
         Location location = new Location ("tmp/TDB");
         // build the Lucene index when pointed to a non existing directory
-        DatasetGraphTDB dsg = TDBFactory.createDatasetGraph(location);
+        DatasetGraphTDB dsg = (DatasetGraphTDB)TDBFactory.createDatasetGraph(location);
 
         TDBLoader.load(dsg, in, false);
         

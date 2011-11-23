@@ -42,7 +42,7 @@ public class ExampleTDB_02 {
         InputStream in = fm.open("data/data.nt");
 
         Location location = new Location ("tmp/TDB");
-        DatasetGraphTDB dsg = TDBFactory.createDatasetGraph(location);
+        DatasetGraphTDB dsg = (DatasetGraphTDB)TDBFactory.createDatasetGraph(location);
 
         TDBLoader.load(dsg, in, false);
         

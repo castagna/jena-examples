@@ -24,7 +24,7 @@ public class ExampleLARQ_02 {
         InputStream in = fm.open("data/data.nt");
                 
         Location location = new Location ("tmp/TDB");
-        DatasetGraphTDB dsg = TDBFactory.createDatasetGraph(location);
+        DatasetGraphTDB dsg = (DatasetGraphTDB)TDBFactory.createDatasetGraph(location);
 
         TDBLoader.load(dsg, in, false); // load data into TDB
         // build the Lucene index when pointed to a non existing directory

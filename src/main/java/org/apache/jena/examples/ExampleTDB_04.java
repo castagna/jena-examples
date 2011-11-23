@@ -43,7 +43,7 @@ public class ExampleTDB_04 {
         fm.addLocatorClassLoader(ExampleTDB_04.class.getClassLoader());
         InputStream in = fm.open("data/data.nt");
 
-        DatasetGraphTDB dsg = TDBFactory.createDatasetGraph();
+        DatasetGraphTDB dsg = (DatasetGraphTDB)TDBFactory.createDatasetGraph();
 
         GraphListener listener = new MyListener();
         dsg.getDefaultGraph().getEventManager().register(listener);

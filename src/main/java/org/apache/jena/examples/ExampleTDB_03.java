@@ -23,7 +23,7 @@ import java.util.Iterator;
 
 import com.hp.hpl.jena.sparql.core.Quad;
 import com.hp.hpl.jena.tdb.DatasetGraphTxn;
-import com.hp.hpl.jena.tdb.ReadWrite;
+import com.hp.hpl.jena.query.ReadWrite;
 import com.hp.hpl.jena.tdb.StoreConnection;
 import com.hp.hpl.jena.tdb.TDBLoader;
 import com.hp.hpl.jena.tdb.base.file.Location;
