@@ -71,14 +71,14 @@ You can run mvn dependency:tree to visualize a tree of all the dependency and
 understand which jar is required by other jar files:
 
 
-jena-core:
+jena-core (-> jena-iri):
 
 +- org.apache.jena:jena-core:jar:2.6.5-incubating-SNAPSHOT:compile
 |  +- org.apache.jena:jena-iri:jar:0.9.0-incubating-SNAPSHOT:compile
 |  +- com.ibm.icu:icu4j:jar:3.4.4:compile
 |  \- xerces:xercesImpl:jar:2.7.1:compile
 
-jena-arq:
+jena-arq (-> jena-core -> jena-iri):
 
 +- org.apache.jena:jena-arq:jar:2.8.9-incubating-SNAPSHOT:compile
 |  +- org.codehaus.woodstox:wstx-asl:jar:3.2.9:compile
@@ -87,11 +87,11 @@ jena-arq:
 |  +- org.apache.httpcomponents:httpclient:jar:4.1.2:compile
 |  \- org.apache.httpcomponents:httpcore:jar:4.1.2:compile
 
-jena-tdb (-> jena-arq -> jena-core):
+jena-tdb (-> jena-arq -> jena-core -> jena-iri):
 
 +- org.apache.jena:jena-tdb:jar:0.9.0-incubating-SNAPSHOT:compile
 
-jena-larq (-> jena-arq -> jena-core):
+jena-larq (-> jena-arq -> jena-core -> jena-iri):
 
 +- org.apache.jena:jena-larq:jar:0.2.2-incubating-SNAPSHOT:compile
 |  \- org.apache.lucene:lucene-core:jar:3.1.0:compile
