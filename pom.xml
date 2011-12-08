@@ -20,6 +20,7 @@
     <clerezza-rdf.jena.commons.version>0.6-incubating-SNAPSHOT</clerezza-rdf.jena.commons.version>
     <slf4j.version>1.6.4</slf4j.version>
     <log4j.version>1.2.16</log4j.version>
+    <jruby.version>1.6.5</jruby.version>
     <jdk.version>1.6</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -118,7 +119,13 @@
       <version>${log4j.version}</version>
       <optional>true</optional>
     </dependency>
-    
+
+    <dependency>
+      <groupId>org.jruby</groupId>
+      <artifactId>jruby-core</artifactId>
+      <version>${jruby.version}</version>
+    </dependency>
+
   </dependencies>
 
   <build>
