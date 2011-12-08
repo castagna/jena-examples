@@ -14,7 +14,7 @@ public class ExampleJRuby_03 {
         ScriptEngineManager sem = new ScriptEngineManager();
         ScriptEngine ruby = sem.getEngineByExtension("rb");
         try {
-            FileReader reader = new FileReader(new File("src/main/ruby", "hello_jena.rb"));
+            FileReader reader = new FileReader(new File("src/main/jruby", "hello_jena.rb"));
             ruby.eval(reader);
         } catch (ScriptException ex) {
             ex.printStackTrace();
