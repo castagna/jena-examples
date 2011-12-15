@@ -26,8 +26,8 @@ import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
-import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.ResourceFactory;
@@ -53,22 +53,26 @@ public class ExampleDT_01 {
         model.add(ResourceFactory.createResource("x3"), RDF.value, model.createTypedLiteral("25", fahrenheit));
         model.add(ResourceFactory.createResource("x4"), RDF.value, model.createTypedLiteral("25", kelvin));
         model.add(ResourceFactory.createResource("x5"), RDF.value, model.createTypedLiteral("25", rankine));
+        System.out.println("\n---- Data ----");
+        model.write(System.out, "N-TRIPLES");
 
         // Query and ORDER BY temperature
         String queryString = 
-            "PREFIX java: <java:org.apache.jena.examples.> " + 
-            "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
-            "SELECT * WHERE { " +
-            "    ?s rdf:value ?temperature . " +
-            "} ORDER BY java:temperature( ?temperature )";
+            "PREFIX java: <java:org.apache.jena.examples.>\n" + 
+            "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+            "SELECT * WHERE {\n" +
+            "    ?s rdf:value ?temperature .\n" +
+            "}\n" +
+            "ORDER BY java:temperature( ?temperature )";
+        System.out.println("\n---- Query ----");
+        System.out.println(queryString);
+        
         Query query = QueryFactory.create(queryString);
         QueryExecution qexec = QueryExecutionFactory.create(query, model);
         try {
             ResultSet results = qexec.execSelect();
-            while ( results.hasNext() ) {
-                QuerySolution soln = results.nextSolution();
-                System.out.println(soln);
-            }
+            System.out.println("\n---- Results ----");
+            System.out.println(ResultSetFormatter.asText(results));
         } finally {
             qexec.close();
         }
