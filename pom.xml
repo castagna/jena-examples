@@ -9,10 +9,11 @@
   <name>Apache Jena Examples</name>
 
   <properties>
-    <jena.version>2.7.0-incubating</jena.version>
+    <jena.version>2.7.1-incubating-SNAPSHOT</jena.version>
     <arq.version>2.9.1-incubating-SNAPSHOT</arq.version>
     <tdb.version>0.9.1-incubating-SNAPSHOT</tdb.version>
     <larq.version>1.0-incubating-SNAPSHOT</larq.version>
+    <iri.version>0.9.1-incubating-SNAPSHOT</iri.version>
     <java-rdfa.version>0.4.2-RC2</java-rdfa.version>
     <jena-jung.version>0.1.1</jena-jung.version>
     <clerezza-rdf.jena.serializer.version>0.10-incubating-SNAPSHOT</clerezza-rdf.jena.serializer.version>
@@ -48,6 +49,11 @@
       <groupId>org.apache.jena</groupId>
       <artifactId>jena-larq</artifactId>
       <version>${larq.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.jena</groupId>
+      <artifactId>jena-iri</artifactId>
+      <version>${iri.version}</version>
     </dependency>
 
     <!-- These are for ExampleRDFa_* -->
