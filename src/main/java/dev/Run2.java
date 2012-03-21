@@ -39,7 +39,7 @@ public class Run2 {
         dataset.begin ( ReadWrite.WRITE );
         try {
             DatasetGraph dsg = dataset.asDatasetGraph();
-            DatasetGraph dsg2 = RiotLoader.datasetFromString("<http://example/org> <http://www.w3.org/2000/01/rdf-schema#label> \"Hello \u0092 World!\" .", Lang.NTRIPLES, null);
+            DatasetGraph dsg2 = RiotLoader.datasetFromString("<http://example/org> <http://www.w3.org/2000/01/rdf-schema#label> \"Hello \n World!\" .", Lang.NTRIPLES, null);
             Iterator<Quad> quads = dsg2.find();
             while ( quads.hasNext() ) {
                 Quad quad = quads.next();
