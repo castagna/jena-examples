@@ -18,6 +18,8 @@
 
 package dev;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Iterator;
 
 import org.junit.Test;
@@ -32,7 +34,7 @@ import com.hp.hpl.jena.sparql.core.Quad;
 import com.hp.hpl.jena.tdb.TDBFactory;
 import com.hp.hpl.jena.tdb.base.file.Location;
 
-public class TestRIOTUnicode {
+public class TestTDBUnicode {
 
     private static final String str_literal = "Hello \uDAE0 World";
     private static final String str_triple = "<s> <p> \"" + str_literal + "\" .";
@@ -68,6 +70,7 @@ public class TestRIOTUnicode {
         } finally {
             dataset.end();
         }
+        assertEquals ( 1, dataset.getDefaultModel().size() );
     }
     
 }
