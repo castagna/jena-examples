@@ -45,51 +45,51 @@ import com.hp.hpl.jena.util.FileManager;
 public class ExampleARQ_06 {
 
 	public static void main(String[] args) throws IOException {
-        FileManager.get().addLocatorClassLoader(ExampleARQ_01.class.getClassLoader());
-        Model model = FileManager.get().loadModel("data/data.ttl");
-        Query query = QueryFactory.create("SELECT * WHERE { ?s ?p ?o }");
-        QueryExecution qexec = QueryExecutionFactory.create(query, model);
+		FileManager.get().addLocatorClassLoader(ExampleARQ_01.class.getClassLoader());
+		Model model = FileManager.get().loadModel("data/data.ttl");
+		Query query = QueryFactory.create("SELECT * WHERE { ?s ?p ?o }");
+		QueryExecution qexec = QueryExecutionFactory.create(query, model);
 
-        FileOutputStream out = new FileOutputStream("target/sxssf.xlsx");
-        Workbook wb = new SXSSFWorkbook(100);
-        Sheet sh = wb.createSheet();
+		FileOutputStream out = new FileOutputStream("target/sxssf.xlsx");
+		Workbook wb = new SXSSFWorkbook(100);
+		Sheet sh = wb.createSheet();
 
-        int rows = 0;
-        int columns = 0;
-        try {
-            ResultSet resultSet = qexec.execSelect();
-            List<String> varNames = resultSet.getResultVars();
-            List<Var> vars = new ArrayList<Var>(varNames.size());
+		int rows = 0;
+		int columns = 0;
+		try {
+			ResultSet resultSet = qexec.execSelect();
+			List<String> varNames = resultSet.getResultVars();
+			List<Var> vars = new ArrayList<Var>(varNames.size());
 
-            // first row with var names
-            Row row = sh.createRow(rows++);
-            for( String varName : varNames ) {
-                Var var = Var.alloc(varName);
-                Cell cell = row.createCell(columns++);
-                cell.setCellValue(var.toString());
-                vars.add(var);
-            }
+			// first row with var names
+			Row row = sh.createRow(rows++);
+			for (String varName : varNames) {
+				Var var = Var.alloc(varName);
+				Cell cell = row.createCell(columns++);
+				cell.setCellValue(var.toString());
+				vars.add(var);
+			}
 
-            // other rows with bindings
-            while ( resultSet.hasNext() ) {
-            	Binding bindings = resultSet.nextBinding();
-                row = sh.createRow(rows++);
-                columns = 0;
-                for( Var var : vars ) {
-                    Node n = bindings.get(var) ;
-                    if ( n != null ) {
-                    	Cell cell = row.createCell(columns++);
-                        String value = FmtUtils.stringForNode(n, (SerializationContext)null) ;
-                        cell.setCellValue(value);
-                    }
-                }
-            }
-        } finally {
-            qexec.close();
-        }
-        
-        wb.write(out);
-        out.close();
+			// other rows with bindings
+			while (resultSet.hasNext()) {
+				Binding bindings = resultSet.nextBinding();
+				row = sh.createRow(rows++);
+				columns = 0;
+				for (Var var : vars) {
+					Node n = bindings.get(var);
+					if (n != null) {
+						Cell cell = row.createCell(columns++);
+						String value = FmtUtils.stringForNode(n, (SerializationContext) null);
+						cell.setCellValue(value);
+					}
+				}
+			}
+		} finally {
+			qexec.close();
+		}
+
+		wb.write(out);
+		out.close();
 	}
 
 }
