@@ -36,7 +36,7 @@ import com.hp.hpl.jena.tdb.base.file.Location;
 
 public class TestTDBUnicode {
 
-    private static final String str_literal = "Hello \uDAE0 World";
+    private static final String str_literal = "Hello \\uDAE0 World";
     private static final String str_triple = "<s> <p> \"" + str_literal + "\" .";
     private static final String path = "target/tdb";
     
@@ -54,6 +54,27 @@ public class TestTDBUnicode {
         FileOps.clearDirectory( path );
         Location location = new Location ( path );
         Dataset dataset = TDBFactory.createDataset ( location );
+        dataset.begin ( ReadWrite.WRITE );
+        try {
+            DatasetGraph dsg = dataset.asDatasetGraph();
+            DatasetGraph dsg2 = RiotLoader.datasetFromString ( str_triple, Lang.TURTLE, null );
+            Iterator<Quad> quads = dsg2.find();
+            while ( quads.hasNext() ) {
+                Quad quad = quads.next();
+                dsg.add(quad);
+            }
+            dataset.commit();
+        } catch ( Exception e ) {
+            e.printStackTrace(System.err);
+            if ( dataset.isInTransaction() ) dataset.abort();
+        } finally {
+            dataset.end();
+        }
+        assertEquals ( 1, dataset.getDefaultModel().size() );
+    }
+    
+    @Test public void test_04() {
+        Dataset dataset = TDBFactory.createDataset ();
         dataset.begin ( ReadWrite.WRITE );
         try {
             DatasetGraph dsg = dataset.asDatasetGraph();
