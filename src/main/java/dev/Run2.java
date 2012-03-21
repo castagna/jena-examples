@@ -46,6 +46,9 @@ public class Run2 {
                 dsg.add(quad);
             }
             dataset.commit();
+        } catch ( Exception e ) {
+            e.printStackTrace(System.err);
+            dataset.abort();
         } finally {
             dataset.end();
         }
