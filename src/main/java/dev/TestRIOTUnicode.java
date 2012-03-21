@@ -20,10 +20,10 @@ package dev;
 
 import java.util.Iterator;
 
+import org.junit.Test;
 import org.openjena.atlas.lib.FileOps;
 import org.openjena.riot.Lang;
 import org.openjena.riot.RiotLoader;
-import org.openjena.riot.RiotWriter;
 
 import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.ReadWrite;
@@ -32,17 +32,30 @@ import com.hp.hpl.jena.sparql.core.Quad;
 import com.hp.hpl.jena.tdb.TDBFactory;
 import com.hp.hpl.jena.tdb.base.file.Location;
 
-public class Run2 {
+public class TestRIOTUnicode {
 
-    public static void main(String[] args) {
-        String path = "target/tdb";
+    private static final String str_literal = "Hello \uDAE0 World";
+    private static final String str_triple = "<s> <p> \"" + str_literal + "\" .";
+    private static final String path = "target/tdb";
+    
+    @Test public void test_01() {
+        RiotLoader.datasetFromString(str_triple, Lang.NTRIPLES, null);
+        RiotLoader.datasetFromString(str_triple, Lang.TURTLE, null);
+    }
+    
+    @Test public void test_02() {
+        RiotLoader.datasetFromString(str_triple, Lang.NTRIPLES, null);
+        RiotLoader.datasetFromString(str_triple, Lang.TURTLE, null);
+    }
+    
+    @Test public void test_03() {
         FileOps.clearDirectory( path );
         Location location = new Location ( path );
         Dataset dataset = TDBFactory.createDataset ( location );
         dataset.begin ( ReadWrite.WRITE );
         try {
             DatasetGraph dsg = dataset.asDatasetGraph();
-            DatasetGraph dsg2 = RiotLoader.datasetFromString("<http://example/org> <http://www.w3.org/2000/01/rdf-schema#label> \"Hello \n World!\" .", Lang.TURTLE, null);
+            DatasetGraph dsg2 = RiotLoader.datasetFromString ( str_triple, Lang.TURTLE, null );
             Iterator<Quad> quads = dsg2.find();
             while ( quads.hasNext() ) {
                 Quad quad = quads.next();
@@ -51,11 +64,10 @@ public class Run2 {
             dataset.commit();
         } catch ( Exception e ) {
             e.printStackTrace(System.err);
-            dataset.abort();
+            if ( dataset.isInTransaction() ) dataset.abort();
         } finally {
             dataset.end();
         }
-        RiotWriter.writeNQuads(System.out, dataset.asDatasetGraph());
     }
-
+    
 }

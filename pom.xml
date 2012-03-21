@@ -23,6 +23,7 @@
     <log4j.version>1.2.16</log4j.version>
     <jruby.version>1.6.5</jruby.version>
     <scala.version>2.9.1</scala.version>
+    <junit.version>4.9</junit.version>
     <jdk.version>1.6</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -137,6 +138,13 @@
       <groupId>org.scala-lang</groupId>
       <artifactId>scala-library</artifactId>
       <version>${scala.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
     </dependency>
 
   </dependencies>
