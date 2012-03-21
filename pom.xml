@@ -10,6 +10,7 @@
 
   <properties>
     <jena.version>2.7.0-incubating</jena.version>
+    <iri.version>0.9.1-incubating-SNAPSHOT</iri.version>
     <arq.version>2.9.1-incubating-SNAPSHOT</arq.version>
     <tdb.version>0.9.1-incubating-SNAPSHOT</tdb.version>
     <larq.version>0.2.2-incubating-SNAPSHOT</larq.version>
@@ -22,6 +23,7 @@
     <log4j.version>1.2.16</log4j.version>
     <jruby.version>1.6.5</jruby.version>
     <scala.version>2.9.1</scala.version>
+    <poi.version>3.8-beta5</poi.version>
     <jdk.version>1.6</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -33,6 +35,11 @@
       <groupId>org.apache.jena</groupId>
       <artifactId>jena-core</artifactId>
       <version>${jena.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.jena</groupId>
+      <artifactId>jena-iri</artifactId>
+      <version>${iri.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jena</groupId>
@@ -131,6 +138,12 @@
       <groupId>org.scala-lang</groupId>
       <artifactId>scala-library</artifactId>
       <version>${scala.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>${poi.version}</version>
     </dependency>
 
   </dependencies>

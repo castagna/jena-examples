@@ -21,8 +21,8 @@ package org.apache.jena.examples;
 import java.io.InputStream;
 import java.util.Iterator;
 
-import com.hp.hpl.jena.sparql.core.Quad;
 import com.hp.hpl.jena.query.ReadWrite;
+import com.hp.hpl.jena.sparql.core.Quad;
 import com.hp.hpl.jena.tdb.StoreConnection;
 import com.hp.hpl.jena.tdb.TDBLoader;
 import com.hp.hpl.jena.tdb.base.file.Location;
