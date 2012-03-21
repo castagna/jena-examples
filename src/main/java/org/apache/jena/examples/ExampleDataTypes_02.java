@@ -33,7 +33,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.ResourceFactory;
 import com.hp.hpl.jena.vocabulary.RDF;
 
-public class ExampleDT_01 {
+public class ExampleDataTypes_02 {
 
     public static void main(String[] args) {
         // Register custom datatypes 

@@ -9,11 +9,11 @@
   <name>Apache Jena Examples</name>
 
   <properties>
-    <jena.version>2.7.0-incubating</jena.version>
-    <iri.version>0.9.1-incubating-SNAPSHOT</iri.version>
+    <jena.version>2.7.1-incubating-SNAPSHOT</jena.version>
     <arq.version>2.9.1-incubating-SNAPSHOT</arq.version>
     <tdb.version>0.9.1-incubating-SNAPSHOT</tdb.version>
-    <larq.version>0.2.2-incubating-SNAPSHOT</larq.version>
+    <larq.version>1.0.0-incubating-SNAPSHOT</larq.version>
+    <iri.version>0.9.1-incubating-SNAPSHOT</iri.version>
     <java-rdfa.version>0.4.2-RC2</java-rdfa.version>
     <jena-jung.version>0.1.1</jena-jung.version>
     <clerezza-rdf.jena.serializer.version>0.10-incubating-SNAPSHOT</clerezza-rdf.jena.serializer.version>
@@ -24,6 +24,7 @@
     <jruby.version>1.6.5</jruby.version>
     <scala.version>2.9.1</scala.version>
     <poi.version>3.8-beta5</poi.version>
+    <junit.version>4.9</junit.version>
     <jdk.version>1.6</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -144,6 +145,13 @@
       <groupId>org.apache.poi</groupId>
       <artifactId>poi-ooxml</artifactId>
       <version>${poi.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
     </dependency>
 
   </dependencies>
