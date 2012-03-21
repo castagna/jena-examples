@@ -20,6 +20,7 @@ package dev;
 
 import static org.junit.Assert.assertEquals;
 
+import java.nio.ByteBuffer;
 import java.util.Iterator;
 
 import org.junit.Test;
@@ -27,12 +28,14 @@ import org.openjena.atlas.lib.FileOps;
 import org.openjena.riot.Lang;
 import org.openjena.riot.RiotLoader;
 
+import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.ReadWrite;
 import com.hp.hpl.jena.sparql.core.DatasetGraph;
 import com.hp.hpl.jena.sparql.core.Quad;
 import com.hp.hpl.jena.tdb.TDBFactory;
 import com.hp.hpl.jena.tdb.base.file.Location;
+import com.hp.hpl.jena.tdb.lib.NodeLib;
 
 public class TestTDBUnicode {
 
@@ -92,6 +95,14 @@ public class TestTDBUnicode {
             dataset.end();
         }
         assertEquals ( 1, dataset.getDefaultModel().size() );
+    }
+    
+    @Test public void test_06() {
+        // see: http://www.unicode.org/charts/PDF/UD800.pdf
+        String s = "\uDAE0"; 
+        Node literal = Node.createLiteral(s); 
+        ByteBuffer bb = NodeLib.encode(literal); 
+        NodeLib.decode(bb);
     }
     
 }
