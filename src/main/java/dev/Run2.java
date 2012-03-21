@@ -20,6 +20,8 @@ package dev;
 
 import java.util.Iterator;
 
+import org.apache.lucene.util.IOUtils;
+import org.openjena.atlas.lib.FileOps;
 import org.openjena.riot.Lang;
 import org.openjena.riot.RiotLoader;
 import org.openjena.riot.RiotWriter;
@@ -30,16 +32,19 @@ import com.hp.hpl.jena.sparql.core.DatasetGraph;
 import com.hp.hpl.jena.sparql.core.Quad;
 import com.hp.hpl.jena.tdb.TDBFactory;
 import com.hp.hpl.jena.tdb.base.file.Location;
+import com.hp.hpl.jena.util.FileUtils;
 
 public class Run2 {
 
     public static void main(String[] args) {
-        Location location = new Location ( "target/tdb" );
+        String path = "target/tdb";
+        FileOps.clearDirectory( path );
+        Location location = new Location ( path );
         Dataset dataset = TDBFactory.createDataset ( location );
         dataset.begin ( ReadWrite.WRITE );
         try {
             DatasetGraph dsg = dataset.asDatasetGraph();
-            DatasetGraph dsg2 = RiotLoader.datasetFromString("<http://example/org> <http://www.w3.org/2000/01/rdf-schema#label> \"Hello \n World!\" .", Lang.NTRIPLES, null);
+            DatasetGraph dsg2 = RiotLoader.datasetFromString("<http://example/org> <http://www.w3.org/2000/01/rdf-schema#label> \"Hello \n World!\" .", Lang.TURTLE, null);
             Iterator<Quad> quads = dsg2.find();
             while ( quads.hasNext() ) {
                 Quad quad = quads.next();
