@@ -30,7 +30,7 @@ import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.ReadWrite;
 import com.hp.hpl.jena.sparql.core.DatasetGraph;
 import com.hp.hpl.jena.sparql.core.Quad;
-import com.hp.hpl.jena.tdb.StoreConnection;
+import com.hp.hpl.jena.tdb.TDBFactory;
 import com.hp.hpl.jena.tdb.base.file.Location;
 
 public class TestTDBCorruption {
@@ -41,17 +41,8 @@ public class TestTDBCorruption {
    
     @Test public void test() {
         Location location = new Location ( path );
-        
-        //
-        // This is wrong: if transaction are needed, 
-        // StoreConnection must be used instead of TDBFactory
-        //
-        // Dataset dataset = TDBFactory.createDataset ( location );
-        // dataset.begin ( ReadWrite.WRITE );
-        // 
-        
-        StoreConnection sc = StoreConnection.make ( location );
-        Dataset dataset = sc.begin ( ReadWrite.WRITE ).toDataset();
+        Dataset dataset = TDBFactory.createDataset ( location );
+        dataset.begin ( ReadWrite.WRITE );
         try {
             DatasetGraph dsg = dataset.asDatasetGraph();
             DatasetGraph dsg2 = RiotLoader.datasetFromString ( str_triple, Lang.TURTLE, null );
