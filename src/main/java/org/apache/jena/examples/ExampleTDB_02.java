@@ -72,7 +72,6 @@ public class ExampleTDB_02 {
         } finally {
             dataset.end();
         }
-
     }
 
 }

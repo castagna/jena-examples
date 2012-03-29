@@ -53,7 +53,6 @@ public class ExampleTDB_01 {
         } finally {
             dataset.end();
         }
-
     }
 
 }
