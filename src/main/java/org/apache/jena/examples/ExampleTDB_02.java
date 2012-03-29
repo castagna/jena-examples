@@ -20,18 +20,19 @@ package org.apache.jena.examples;
 
 import java.io.InputStream;
 
+import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
+import com.hp.hpl.jena.query.ReadWrite;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Literal;
-import com.hp.hpl.jena.shared.Lock;
 import com.hp.hpl.jena.tdb.TDBFactory;
 import com.hp.hpl.jena.tdb.TDBLoader;
 import com.hp.hpl.jena.tdb.base.file.Location;
-import com.hp.hpl.jena.tdb.store.DatasetGraphTDB;
+import com.hp.hpl.jena.tdb.sys.SystemTDB;
 import com.hp.hpl.jena.util.FileManager;
 
 public class ExampleTDB_02 {
@@ -41,10 +42,10 @@ public class ExampleTDB_02 {
         fm.addLocatorClassLoader(ExampleTDB_02.class.getClassLoader());
         InputStream in = fm.open("data/data.nt");
 
-        Location location = new Location ("tmp/TDB");
-        DatasetGraphTDB dsg = (DatasetGraphTDB)TDBFactory.createDatasetGraph(location);
+        Location location = new Location ("target/TDB");
 
-        TDBLoader.load(dsg, in, false);
+        // Load some initial data
+        TDBLoader.load(SystemTDB.getBaseDatasetGraphTDB(TDBFactory.createDatasetGraph(location)), in, false);
         
         String queryString = 
             "PREFIX foaf: <http://xmlns.com/foaf/0.1/> " +
@@ -53,11 +54,11 @@ public class ExampleTDB_02 {
             "    ?person foaf:name ?name . " +
             "}";
         
-        Lock lock = dsg.getLock();
-        lock.enterCriticalSection(Lock.READ);
+        Dataset dataset = TDBFactory.createDataset(location);
+        dataset.begin(ReadWrite.READ);
         try {
             Query query = QueryFactory.create(queryString);
-            QueryExecution qexec = QueryExecutionFactory.create(query, dsg.toDataset());
+            QueryExecution qexec = QueryExecutionFactory.create(query, dataset);
             try {
                 ResultSet results = qexec.execSelect();
                 while ( results.hasNext() ) {
@@ -69,10 +70,9 @@ public class ExampleTDB_02 {
                 qexec.close();
             }
         } finally {
-            lock.leaveCriticalSection();
+            dataset.end();
         }
 
-        dsg.close();
     }
 
 }

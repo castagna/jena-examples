@@ -33,6 +33,7 @@ import com.hp.hpl.jena.sparql.util.graph.GraphListenerBase;
 import com.hp.hpl.jena.tdb.TDBFactory;
 import com.hp.hpl.jena.tdb.TDBLoader;
 import com.hp.hpl.jena.tdb.store.DatasetGraphTDB;
+import com.hp.hpl.jena.tdb.sys.SystemTDB;
 import com.hp.hpl.jena.util.FileManager;
 import com.hp.hpl.jena.vocabulary.RDFS;
 
@@ -43,7 +44,7 @@ public class ExampleTDB_04 {
         fm.addLocatorClassLoader(ExampleTDB_04.class.getClassLoader());
         InputStream in = fm.open("data/data.nt");
 
-        DatasetGraphTDB dsg = (DatasetGraphTDB)TDBFactory.createDatasetGraph();
+        DatasetGraphTDB dsg = SystemTDB.getBaseDatasetGraphTDB(TDBFactory.createDatasetGraph());
 
         GraphListener listener = new MyListener();
         dsg.getDefaultGraph().getEventManager().register(listener);
