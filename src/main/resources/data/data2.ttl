@@ -1,3 +1,3 @@
-@prefix : <http://example.org/> . @prefix foaf: <http://xmlns.com/foaf/0.1/> . :alice a foaf:Person ; foaf:name "Alice" ; foaf:mbox <mailto:alice@example.org> ; foaf:knows :bob, :charlie, :snoopy . :charlie foaf:knows :alice .
+@prefix : <http://example.org/> . @prefix foaf: <http://xmlns.com/foaf/0.1/> . :alice a foaf:Person ; foaf:name "Alice" ; foaf:mbox <mailto:alice@example.org> ; foaf:knows :bob, :charlie, :snoopy ; . :charlie foaf:knows :alice .
 @prefix : <http://example.org/> . @prefix foaf: <http://xmlns.com/foaf/0.1/> . :bob foaf:name "Bob" ; foaf:knows  :charlie . :alice foaf:knows :bob .
 @prefix : <http://example.org/> . @prefix foaf: <http://xmlns.com/foaf/0.1/> . :charlie foaf:name "Charlie" ; foaf:knows :alice . :alice foaf:knows :charlie .
