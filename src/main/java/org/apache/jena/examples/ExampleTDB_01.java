@@ -27,7 +27,7 @@ import com.hp.hpl.jena.sparql.core.Quad;
 import com.hp.hpl.jena.tdb.TDBFactory;
 import com.hp.hpl.jena.tdb.TDBLoader;
 import com.hp.hpl.jena.tdb.base.file.Location;
-import com.hp.hpl.jena.tdb.sys.SystemTDB;
+import com.hp.hpl.jena.tdb.sys.TDBInternal;
 import com.hp.hpl.jena.util.FileManager;
 
 public class ExampleTDB_01 {
@@ -40,7 +40,7 @@ public class ExampleTDB_01 {
         Location location = new Location ("target/TDB");
 
         // Load some initial data
-        TDBLoader.load(SystemTDB.getBaseDatasetGraphTDB(TDBFactory.createDatasetGraph(location)), in, false);
+        TDBLoader.load(TDBInternal.getBaseDatasetGraphTDB(TDBFactory.createDatasetGraph(location)), in, false);
 
         Dataset dataset = TDBFactory.createDataset(location);
         dataset.begin(ReadWrite.READ);

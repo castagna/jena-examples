@@ -32,7 +32,7 @@ import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.tdb.TDBFactory;
 import com.hp.hpl.jena.tdb.TDBLoader;
 import com.hp.hpl.jena.tdb.base.file.Location;
-import com.hp.hpl.jena.tdb.sys.SystemTDB;
+import com.hp.hpl.jena.tdb.sys.TDBInternal;
 import com.hp.hpl.jena.util.FileManager;
 
 public class ExampleTDB_02 {
@@ -45,7 +45,7 @@ public class ExampleTDB_02 {
         Location location = new Location ("target/TDB");
 
         // Load some initial data
-        TDBLoader.load(SystemTDB.getBaseDatasetGraphTDB(TDBFactory.createDatasetGraph(location)), in, false);
+        TDBLoader.load(TDBInternal.getBaseDatasetGraphTDB(TDBFactory.createDatasetGraph(location)), in, false);
         
         String queryString = 
             "PREFIX foaf: <http://xmlns.com/foaf/0.1/> " +
