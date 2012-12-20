@@ -23,7 +23,7 @@ import java.io.InputStream;
 import org.openjena.riot.Lang;
 import org.openjena.riot.RiotReader;
 import org.openjena.riot.RiotWriter;
-import org.openjena.riot.lang.SinkTriplesToGraph;
+import org.apache.jena.riot.lang.SinkTriplesToGraph;
 
 import com.hp.hpl.jena.graph.Factory;
 import com.hp.hpl.jena.graph.Graph;

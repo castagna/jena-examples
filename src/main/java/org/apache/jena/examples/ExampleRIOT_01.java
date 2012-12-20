@@ -20,7 +20,7 @@ package org.apache.jena.examples;
 
 import java.io.InputStream;
 
-import org.openjena.atlas.lib.SinkPrint;
+import org.apache.jena.atlas.lib.SinkPrint;
 import org.openjena.riot.Lang;
 import org.openjena.riot.RiotReader;
 

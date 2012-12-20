@@ -9,11 +9,11 @@
   <name>Apache Jena Examples</name>
 
   <properties>
-    <jena.version>2.7.4-SNAPSHOT</jena.version>
-    <arq.version>2.9.4-SNAPSHOT</arq.version>
-    <tdb.version>0.9.4-SNAPSHOT</tdb.version>
+    <jena.version>2.10.0-SNAPSHOT</jena.version>
+    <arq.version>2.10.0-SNAPSHOT</arq.version>
+    <tdb.version>0.10.0-SNAPSHOT</tdb.version>
     <larq.version>1.0.1-SNAPSHOT</larq.version>
-    <iri.version>0.9.4-SNAPSHOT</iri.version>
+    <iri.version>0.9.5-SNAPSHOT</iri.version>
     <java-rdfa.version>0.4.2-RC2</java-rdfa.version>
     <jena-jung.version>0.1.1</jena-jung.version>
     <clerezza-rdf.jena.serializer.version>0.10-incubating-SNAPSHOT</clerezza-rdf.jena.serializer.version>
@@ -24,7 +24,7 @@
     <jruby.version>1.6.5</jruby.version>
     <scala.version>2.9.1</scala.version>
     <poi.version>3.8-beta5</poi.version>
-    <junit.version>4.9</junit.version>
+    <junit.version>4.11</junit.version>
     <jdk.version>1.6</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -151,7 +151,7 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>
-      <scope>test</scope>
+      <!-- <scope>test</scope> -->
     </dependency>
 
   </dependencies>

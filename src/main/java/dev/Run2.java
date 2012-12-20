@@ -20,7 +20,7 @@ package dev;
 
 import java.util.Iterator;
 
-import org.openjena.atlas.lib.FileOps;
+import org.apache.jena.atlas.lib.FileOps;
 import org.openjena.riot.Lang;
 import org.openjena.riot.RiotLoader;
 import org.openjena.riot.RiotWriter;

@@ -16,19 +16,20 @@
   <classpathentry kind="var" path="M2_REPO/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" sourcepath="M2_REPO/dom4j/dom4j/1.6.1/dom4j-1.6.1-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar" sourcepath="M2_REPO/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/nu/validator/htmlparser/htmlparser/1.2.1/htmlparser-1.2.1.jar" sourcepath="M2_REPO/nu/validator/htmlparser/htmlparser/1.2.1/htmlparser-1.2.1-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpclient/4.1.2/httpclient-4.1.2.jar" sourcepath="M2_REPO/org/apache/httpcomponents/httpclient/4.1.2/httpclient-4.1.2-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpcore/4.1.3/httpcore-4.1.3.jar" sourcepath="M2_REPO/org/apache/httpcomponents/httpcore/4.1.3/httpcore-4.1.3-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpclient/4.2.2/httpclient-4.2.2.jar" sourcepath="M2_REPO/org/apache/httpcomponents/httpclient/4.2.2/httpclient-4.2.2-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpcore/4.2.3/httpcore-4.2.3.jar" sourcepath="M2_REPO/org/apache/httpcomponents/httpcore/4.2.3/httpcore-4.2.3-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/ibm/icu/icu4j/3.4.4/icu4j-3.4.4.jar" sourcepath="M2_REPO/com/ibm/icu/icu4j/3.4.4/icu4j-3.4.4-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/hp/hpl/jena/iri/0.8/iri-0.8.jar" sourcepath="M2_REPO/com/hp/hpl/jena/iri/0.8/iri-0.8-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/jruby/extras/jaffl/0.5.11/jaffl-0.5.11.jar"/>
   <classpathentry kind="var" path="M2_REPO/net/rootdev/java-rdfa/0.4.2-RC2/java-rdfa-0.4.2-RC2.jar" sourcepath="M2_REPO/net/rootdev/java-rdfa/0.4.2-RC2/java-rdfa-0.4.2-RC2-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/net/rootdev/java-rdfa-htmlparser/0.4.2-RC2/java-rdfa-htmlparser-0.4.2-RC2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/jcl-over-slf4j/1.6.4/jcl-over-slf4j-1.6.4.jar" sourcepath="M2_REPO/org/slf4j/jcl-over-slf4j/1.6.4/jcl-over-slf4j-1.6.4-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/jruby/jcodings/jcodings/1.0.5/jcodings-1.0.5.jar" sourcepath="M2_REPO/org/jruby/jcodings/jcodings/1.0.5/jcodings-1.0.5-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/jena/jena-arq/2.9.4-SNAPSHOT/jena-arq-2.9.4-SNAPSHOT.jar" sourcepath="M2_REPO/org/apache/jena/jena-arq/2.9.4-SNAPSHOT/jena-arq-2.9.4-SNAPSHOT-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/jena/jena-core/2.7.4-SNAPSHOT/jena-core-2.7.4-SNAPSHOT.jar" sourcepath="M2_REPO/org/apache/jena/jena-core/2.7.4-SNAPSHOT/jena-core-2.7.4-SNAPSHOT-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/jena/jena-iri/0.9.4-SNAPSHOT/jena-iri-0.9.4-SNAPSHOT.jar" sourcepath="M2_REPO/org/apache/jena/jena-iri/0.9.4-SNAPSHOT/jena-iri-0.9.4-SNAPSHOT-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/jena/jena-arq/2.10.0-SNAPSHOT/jena-arq-2.10.0-SNAPSHOT.jar" sourcepath="M2_REPO/org/apache/jena/jena-arq/2.10.0-SNAPSHOT/jena-arq-2.10.0-SNAPSHOT-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/jena/jena-core/2.10.0-SNAPSHOT/jena-core-2.10.0-SNAPSHOT.jar" sourcepath="M2_REPO/org/apache/jena/jena-core/2.10.0-SNAPSHOT/jena-core-2.10.0-SNAPSHOT-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/jena/jena-iri/0.9.5-SNAPSHOT/jena-iri-0.9.5-SNAPSHOT.jar" sourcepath="M2_REPO/org/apache/jena/jena-iri/0.9.5-SNAPSHOT/jena-iri-0.9.5-SNAPSHOT-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/jena/jena-larq/1.0.1-SNAPSHOT/jena-larq-1.0.1-SNAPSHOT.jar" sourcepath="M2_REPO/org/apache/jena/jena-larq/1.0.1-SNAPSHOT/jena-larq-1.0.1-SNAPSHOT-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/jena/jena-tdb/0.9.4-SNAPSHOT/jena-tdb-0.9.4-SNAPSHOT.jar" sourcepath="M2_REPO/org/apache/jena/jena-tdb/0.9.4-SNAPSHOT/jena-tdb-0.9.4-SNAPSHOT-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/jena/jena-tdb/0.10.0-SNAPSHOT/jena-tdb-0.10.0-SNAPSHOT.jar" sourcepath="M2_REPO/org/apache/jena/jena-tdb/0.10.0-SNAPSHOT/jena-tdb-0.10.0-SNAPSHOT-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/net/rootdev/JenaJung/0.1.1/JenaJung-0.1.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/jruby/extras/jffi/1.0.8/jffi-1.0.8.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/jruby/extras/jffi/1.0.6/jffi-1.0.6-native.jar"/>

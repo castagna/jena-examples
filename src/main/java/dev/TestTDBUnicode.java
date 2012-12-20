@@ -24,7 +24,7 @@ import java.nio.ByteBuffer;
 import java.util.Iterator;
 
 import org.junit.Test;
-import org.openjena.atlas.lib.FileOps;
+import org.apache.jena.atlas.lib.FileOps;
 import org.openjena.riot.Lang;
 import org.openjena.riot.RiotLoader;
 
