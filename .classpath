@@ -45,6 +45,23 @@
   <classpathentry kind="var" path="M2_REPO/com/ibm/icu/icu4j/3.4.4/icu4j-3.4.4.jar" sourcepath="M2_REPO/com/ibm/icu/icu4j/3.4.4/icu4j-3.4.4-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/net/rootdev/java-rdfa-htmlparser/0.4.2-RC2/java-rdfa-htmlparser-0.4.2-RC2.jar"/>
   <classpathentry kind="var" path="M2_REPO/nu/validator/htmlparser/htmlparser/1.2.1/htmlparser-1.2.1.jar" sourcepath="M2_REPO/nu/validator/htmlparser/htmlparser/1.2.1/htmlparser-1.2.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jruby/jruby-core/1.6.5/jruby-core-1.6.5.jar" sourcepath="M2_REPO/org/jruby/jruby-core/1.6.5/jruby-core-1.6.5-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jruby/joni/joni/1.1.6/joni-1.1.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jruby/jcodings/jcodings/1.0.5/jcodings-1.0.5.jar" sourcepath="M2_REPO/org/jruby/jcodings/jcodings/1.0.5/jcodings-1.0.5-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jruby/extras/jnr-netdb/1.0.3/jnr-netdb-1.0.3.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jruby/extras/jaffl/0.5.11/jaffl-0.5.11.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jruby/extras/jffi/1.0.8/jffi-1.0.8.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jruby/extras/jffi/1.0.6/jffi-1.0.6-native.jar"/>
+  <classpathentry kind="var" path="M2_REPO/asm/asm/3.2/asm-3.2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/asm/asm-commons/3.2/asm-commons-3.2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/asm/asm-tree/3.2/asm-tree-3.2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jruby/extras/jnr-x86asm/1.0.0/jnr-x86asm-1.0.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jruby/ext/posix/jnr-posix/1.1.8/jnr-posix-1.1.8.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jruby/extras/bytelist/1.0.8/bytelist-1.0.8.jar" sourcepath="M2_REPO/org/jruby/extras/bytelist/1.0.8/bytelist-1.0.8-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jruby/extras/constantine/0.6/constantine-0.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/yaml/snakeyaml/1.9/snakeyaml-1.9.jar" sourcepath="M2_REPO/org/yaml/snakeyaml/1.9/snakeyaml-1.9-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/jline/jline/1.0/jline-1.0.jar" sourcepath="M2_REPO/jline/jline/1.0/jline-1.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/joda-time/joda-time/1.6/joda-time-1.6.jar" sourcepath="M2_REPO/joda-time/joda-time/1.6/joda-time-1.6-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/poi/poi-ooxml/3.8-beta5/poi-ooxml-3.8-beta5.jar" sourcepath="M2_REPO/org/apache/poi/poi-ooxml/3.8-beta5/poi-ooxml-3.8-beta5-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/poi/poi/3.8-beta5/poi-3.8-beta5.jar" sourcepath="M2_REPO/org/apache/poi/poi/3.8-beta5/poi-3.8-beta5-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/poi/poi-ooxml-schemas/3.8-beta5/poi-ooxml-schemas-3.8-beta5.jar"/>

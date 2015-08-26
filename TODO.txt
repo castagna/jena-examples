@@ -1,7 +1,5 @@
 TODO
 ----
 
- - Install http://www.scala-ide.org/, it requires: Eclipse Classic 3.6.2 or 3.7
- - Complete ExampleScala_01.java
  - Add more examples
  

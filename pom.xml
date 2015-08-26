@@ -69,6 +69,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.jruby</groupId>
+      <artifactId>jruby-core</artifactId>
+      <version>${jruby.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi-ooxml</artifactId>
       <version>${poi.version}</version>
