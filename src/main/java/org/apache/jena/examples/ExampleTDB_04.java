@@ -21,21 +21,22 @@ package org.apache.jena.examples;
 import java.io.InputStream;
 import java.util.Iterator;
 
-import com.hp.hpl.jena.graph.Graph;
-import com.hp.hpl.jena.graph.GraphListener;
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.graph.Triple;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.ResourceFactory;
-import com.hp.hpl.jena.sparql.core.Quad;
-import com.hp.hpl.jena.sparql.util.graph.GraphListenerBase;
-import com.hp.hpl.jena.tdb.TDBFactory;
-import com.hp.hpl.jena.tdb.TDBLoader;
-import com.hp.hpl.jena.tdb.store.DatasetGraphTDB;
-import com.hp.hpl.jena.tdb.sys.TDBInternal;
-import com.hp.hpl.jena.util.FileManager;
-import com.hp.hpl.jena.vocabulary.RDFS;
+import org.apache.jena.graph.Graph;
+import org.apache.jena.graph.GraphListener;
+import org.apache.jena.graph.Node;
+import org.apache.jena.graph.NodeFactory;
+import org.apache.jena.graph.Triple;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.ResourceFactory;
+import org.apache.jena.sparql.core.Quad;
+import org.apache.jena.sparql.util.graph.GraphListenerBase;
+import org.apache.jena.tdb.TDBFactory;
+import org.apache.jena.tdb.TDBLoader;
+import org.apache.jena.tdb.store.DatasetGraphTDB;
+import org.apache.jena.tdb.sys.TDBInternal;
+import org.apache.jena.util.FileManager;
+import org.apache.jena.vocabulary.RDFS;
 
 public class ExampleTDB_04 {
 
@@ -58,11 +59,11 @@ public class ExampleTDB_04 {
         TDBLoader.load(dsg, in, false);
         
         // this does not uses the Graph SPI
-        dsg.add(new Quad(Quad.defaultGraphIRI, Node.createURI("x"), Node.createURI("y"), Node.createURI("z")));
+        dsg.add(new Quad(Quad.defaultGraphIRI, NodeFactory.createURI("x"), NodeFactory.createURI("y"), NodeFactory.createURI("z")));
         
         // this does
         Graph graph = dsg.getDefaultGraph();
-        graph.add(new Triple(Node.createURI("x"), Node.createURI("y"), Node.createURI("z")));
+        graph.add(new Triple(NodeFactory.createURI("x"), NodeFactory.createURI("y"), NodeFactory.createURI("z")));
 
         // this sends events to the GraphListener
         Model model = ModelFactory.createModelForGraph(dsg.getDefaultGraph()) ;

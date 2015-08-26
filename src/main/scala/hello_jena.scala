@@ -1,7 +1,7 @@
 
 import _root_.java.lang.System
 import _root_.org.apache.jena.examples.Utils
-import _root_.com.hp.hpl.jena.rdf.model.ModelFactory
+import _root_.org.apache.jena.rdf.model.ModelFactory
 
 object HelloJena {
     def main(args: Array[String]) {

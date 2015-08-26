@@ -20,10 +20,9 @@ package org.apache.jena.examples;
 
 import java.io.InputStream;
 
-import org.openjena.riot.RIOT;
-
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.riot.RIOT;
 
 public class ExampleIO_01 {
 

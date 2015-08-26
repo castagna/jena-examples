@@ -21,28 +21,26 @@ package dev;
 import java.util.Iterator;
 
 import org.apache.jena.atlas.lib.FileOps;
-import org.openjena.riot.Lang;
-import org.openjena.riot.RiotLoader;
-import org.openjena.riot.RiotWriter;
-
-import com.hp.hpl.jena.query.Dataset;
-import com.hp.hpl.jena.query.ReadWrite;
-import com.hp.hpl.jena.sparql.core.DatasetGraph;
-import com.hp.hpl.jena.sparql.core.Quad;
-import com.hp.hpl.jena.tdb.TDBFactory;
-import com.hp.hpl.jena.tdb.base.file.Location;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.query.ReadWrite;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.sparql.core.DatasetGraph;
+import org.apache.jena.sparql.core.Quad;
+import org.apache.jena.tdb.TDBFactory;
+import org.apache.jena.tdb.base.file.Location;
 
 public class Run2 {
 
     public static void main(String[] args) {
         String path = "target/tdb";
         FileOps.clearDirectory( path );
-        Location location = new Location ( path );
+        Location location = Location.create( path );
         Dataset dataset = TDBFactory.createDataset ( location );
         dataset.begin ( ReadWrite.WRITE );
         try {
             DatasetGraph dsg = dataset.asDatasetGraph();
-            DatasetGraph dsg2 = RiotLoader.datasetFromString("<http://example/org> <http://www.w3.org/2000/01/rdf-schema#label> \"Hello \n World!\" .", Lang.TURTLE, null);
+            DatasetGraph dsg2 = RDFDataMgr.loadDatasetGraph("<http://example/org> <http://www.w3.org/2000/01/rdf-schema#label> \"Hello \n World!\" .", Lang.TURTLE );
             Iterator<Quad> quads = dsg2.find();
             while ( quads.hasNext() ) {
                 Quad quad = quads.next();
@@ -55,7 +53,7 @@ public class Run2 {
         } finally {
             dataset.end();
         }
-        RiotWriter.writeNQuads(System.out, dataset.asDatasetGraph());
+        RDFDataMgr.write(System.out, dataset, Lang.NQUADS);
     }
 
 }

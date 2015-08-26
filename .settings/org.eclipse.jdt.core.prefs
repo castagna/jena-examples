@@ -1,9 +1,13 @@
-#Mon Oct 10 14:39:09 BST 2011
-encoding//src/test/java=UTF-8
-org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.6
-eclipse.preferences.version=1
-encoding//src/test/resources=UTF-8
-org.eclipse.jdt.core.compiler.source=1.6
+#Wed Aug 26 12:42:37 CEST 2015
+encoding/src/test/java=UTF-8
 encoding//src/main/java=UTF-8
+org.eclipse.jdt.core.compiler.compliance=1.8
 encoding//src/main/resources=UTF-8
-org.eclipse.jdt.core.compiler.compliance=1.6
+encoding//src/test/resources=UTF-8
+encoding//src/test/java=UTF-8
+encoding/src/main/resources=UTF-8
+encoding/src/main/java=UTF-8
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
+eclipse.preferences.version=1
+encoding/src/test/resources=UTF-8
+org.eclipse.jdt.core.compiler.source=1.8

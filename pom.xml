@@ -9,53 +9,30 @@
   <name>Apache Jena Examples</name>
 
   <properties>
-    <jena.version>2.10.0-SNAPSHOT</jena.version>
-    <arq.version>2.10.0-SNAPSHOT</arq.version>
-    <tdb.version>0.10.0-SNAPSHOT</tdb.version>
-    <larq.version>1.0.1-SNAPSHOT</larq.version>
-    <iri.version>0.9.5-SNAPSHOT</iri.version>
+    <jena.version>3.0.0</jena.version>
     <java-rdfa.version>0.4.2-RC2</java-rdfa.version>
-    <jena-jung.version>0.1.1</jena-jung.version>
-    <clerezza-rdf.jena.serializer.version>0.10-incubating-SNAPSHOT</clerezza-rdf.jena.serializer.version>
-    <clerezza-rdf.jena.parser.version>0.11-incubating-SNAPSHOT</clerezza-rdf.jena.parser.version>
-    <clerezza-rdf.jena.commons.version>0.6-incubating-SNAPSHOT</clerezza-rdf.jena.commons.version>
     <slf4j.version>1.6.4</slf4j.version>
     <log4j.version>1.2.16</log4j.version>
     <jruby.version>1.6.5</jruby.version>
-    <scala.version>2.9.1</scala.version>
     <poi.version>3.8-beta5</poi.version>
     <junit.version>4.11</junit.version>
-    <jdk.version>1.6</jdk.version>
+    <jdk.version>1.8</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
   
-    <!-- Not strictly necessary, but I want Jena sources in my IDE! -->
     <dependency>
       <groupId>org.apache.jena</groupId>
-      <artifactId>jena-core</artifactId>
+      <artifactId>apache-jena-libs</artifactId>
+      <type>pom</type>
       <version>${jena.version}</version>
     </dependency>
+
     <dependency>
       <groupId>org.apache.jena</groupId>
-      <artifactId>jena-iri</artifactId>
-      <version>${iri.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.jena</groupId>
-      <artifactId>jena-arq</artifactId>
-      <version>${arq.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.jena</groupId>
-      <artifactId>jena-tdb</artifactId>
-      <version>${tdb.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.jena</groupId>
-      <artifactId>jena-larq</artifactId>
-      <version>${larq.version}</version>
+      <artifactId>jena-text</artifactId>
+      <version>${jena.version}</version>
     </dependency>
 
     <!-- These are for ExampleRDFa_* -->
@@ -70,44 +47,6 @@
       <version>${java-rdfa.version}</version>
     </dependency>
     
-    <!-- This is for ExampleJUNG-* -->
-    <dependency>
-      <groupId>net.rootdev</groupId>
-      <artifactId>JenaJung</artifactId>
-      <version>${jena-jung.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>com.hp.hpl.jena</groupId>
-          <artifactId>jena</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
-    <!-- This is for ExampleClerezza-* -->
-    <dependency>
-      <groupId>org.apache.clerezza</groupId>
-      <artifactId>rdf.jena.parser</artifactId>
-      <version>${clerezza-rdf.jena.parser.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.clerezza</groupId>
-      <artifactId>rdf.jena.serializer</artifactId>
-      <version>${clerezza-rdf.jena.serializer.version}</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.apache.clerezza</groupId>
-      <artifactId>rdf.jena.commons</artifactId>
-      <version>${clerezza-rdf.jena.commons.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>com.hp.hpl.jena</groupId>
-          <artifactId>jena</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
     <!-- Logging: SL4J -> Log4j -->
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -130,18 +69,6 @@
     </dependency>
 
     <dependency>
-      <groupId>org.jruby</groupId>
-      <artifactId>jruby-core</artifactId>
-      <version>${jruby.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.scala-lang</groupId>
-      <artifactId>scala-library</artifactId>
-      <version>${scala.version}</version>
-    </dependency>
-
-    <dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi-ooxml</artifactId>
       <version>${poi.version}</version>
@@ -161,7 +88,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
+        <version>3.3</version>
         <configuration>
           <source>${jdk.version}</source>
           <target>${jdk.version}</target>
@@ -171,26 +98,13 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-eclipse-plugin</artifactId>
-        <version>2.8</version>
+        <version>2.9</version>
         <configuration>
          <buildOutputDirectory>${project.build.directory}/classes</buildOutputDirectory>
          <downloadSources>true</downloadSources>
          <downloadJavadocs>false</downloadJavadocs>
          <useProjectReferences>false</useProjectReferences>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.scala-tools</groupId>
-        <artifactId>maven-scala-plugin</artifactId>
-        <version>${scala.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>

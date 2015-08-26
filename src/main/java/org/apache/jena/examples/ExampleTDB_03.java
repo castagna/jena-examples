@@ -21,14 +21,14 @@ package org.apache.jena.examples;
 import java.io.InputStream;
 import java.util.Iterator;
 
-import com.hp.hpl.jena.query.Dataset;
-import com.hp.hpl.jena.query.ReadWrite;
-import com.hp.hpl.jena.sparql.core.Quad;
-import com.hp.hpl.jena.tdb.TDBFactory;
-import com.hp.hpl.jena.tdb.TDBLoader;
-import com.hp.hpl.jena.tdb.base.file.Location;
-import com.hp.hpl.jena.tdb.sys.TDBInternal;
-import com.hp.hpl.jena.util.FileManager;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.query.ReadWrite;
+import org.apache.jena.sparql.core.Quad;
+import org.apache.jena.tdb.TDBFactory;
+import org.apache.jena.tdb.TDBLoader;
+import org.apache.jena.tdb.base.file.Location;
+import org.apache.jena.tdb.sys.TDBInternal;
+import org.apache.jena.util.FileManager;
 
 public class ExampleTDB_03 {
 
@@ -37,7 +37,7 @@ public class ExampleTDB_03 {
         fm.addLocatorClassLoader(ExampleTDB_03.class.getClassLoader());
         InputStream in = fm.open("data/data.nt");
 
-        Location location = new Location ("target/TDB");
+        Location location = Location.create ("target/TDB");
         Dataset dataset = TDBFactory.createDataset(location);
         dataset.begin(ReadWrite.WRITE);
         try {

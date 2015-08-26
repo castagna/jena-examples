@@ -26,12 +26,13 @@ import java.util.Map;
 import org.apache.jena.atlas.lib.Sink;
 import org.apache.jena.atlas.lib.SinkNull;
 import org.apache.jena.atlas.lib.SinkWrapper;
-import org.openjena.riot.Lang;
-import org.openjena.riot.RiotReader;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RiotReader;
 
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.sparql.core.Quad;
-import com.hp.hpl.jena.vocabulary.RDF;
+import org.apache.jena.graph.Node;
+import org.apache.jena.graph.NodeFactory;
+import org.apache.jena.sparql.core.Quad;
+import org.apache.jena.vocabulary.RDF;
 
 public class ExampleRIOT_02 {
 
@@ -103,7 +104,7 @@ class SinkQuadStats extends SinkWrapper<Quad> {
         Node g = quad.getGraph();
         
         Node p = quad.getPredicate();
-        Node ns = Node.createURI(p.getNameSpace());
+        Node ns = NodeFactory.createURI(p.getNameSpace());
     	increment ( properties, p );
     	increment ( namespaces, ns );
     	increment ( propertiesPerGraph, g, p );
@@ -112,7 +113,7 @@ class SinkQuadStats extends SinkWrapper<Quad> {
         if ( p.equals(RDF.type.asNode()) ) {
         	Node o = quad.getObject();
         	if ( o.isURI() ) {
-                ns = Node.createURI(o.getNameSpace());
+                ns = NodeFactory.createURI(o.getNameSpace());
             	increment ( classes, o );
             	increment ( namespaces, ns );
             	increment ( classesPerGraph, g, o );

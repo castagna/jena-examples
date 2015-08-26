@@ -20,11 +20,12 @@ package org.apache.jena.examples;
 
 import java.util.List;
 
-import com.hp.hpl.jena.query.QueryBuildException;
-import com.hp.hpl.jena.sparql.expr.ExprEvalException;
-import com.hp.hpl.jena.sparql.expr.ExprList;
-import com.hp.hpl.jena.sparql.expr.NodeValue;
-import com.hp.hpl.jena.sparql.function.FunctionBase;
+import org.apache.jena.atlas.lib.Lib;
+import org.apache.jena.query.QueryBuildException;
+import org.apache.jena.sparql.expr.ExprEvalException;
+import org.apache.jena.sparql.expr.ExprList;
+import org.apache.jena.sparql.expr.NodeValue;
+import org.apache.jena.sparql.function.FunctionBase;
 
 public class temperature extends FunctionBase {
 
@@ -38,7 +39,7 @@ public class temperature extends FunctionBase {
     @Override 
     public void checkBuild(String uri, ExprList args) {
         if ( args.size() != 1 ) 
-            throw new QueryBuildException("Function '"+com.hp.hpl.jena.sparql.util.Utils.className(this)+"' takes one argument") ;
+            throw new QueryBuildException("Function '"+Lib.className(this)+"' takes one argument") ;
     }
 
     @Override

@@ -21,10 +21,9 @@ package org.apache.jena.examples;
 import java.io.InputStream;
 
 import org.apache.jena.atlas.lib.SinkPrint;
-import org.openjena.riot.Lang;
-import org.openjena.riot.RiotReader;
-
-import com.hp.hpl.jena.graph.Triple;
+import org.apache.jena.graph.Triple;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RiotReader;
 
 public class ExampleRIOT_01 {
 

@@ -18,19 +18,19 @@
 
 package dev;
 
-import com.hp.hpl.jena.query.Dataset;
-import com.hp.hpl.jena.query.ReadWrite;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ResourceFactory;
-import com.hp.hpl.jena.tdb.TDBFactory;
-import com.hp.hpl.jena.tdb.base.file.Location;
-import com.hp.hpl.jena.vocabulary.RDFS;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.query.ReadWrite;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ResourceFactory;
+import org.apache.jena.tdb.TDBFactory;
+import org.apache.jena.tdb.base.file.Location;
+import org.apache.jena.vocabulary.RDFS;
 
 public class Run {
 
     public static void main(String[] args) {
         String value = "Hello \u0092 World!";
-        Location location = new Location ( "target/tdb" );
+        Location location = Location.create ( "target/tdb" );
         Dataset dataset = TDBFactory.createDataset ( location );
         dataset.begin ( ReadWrite.WRITE );
         try {

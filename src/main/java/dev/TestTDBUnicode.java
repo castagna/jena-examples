@@ -20,22 +20,24 @@ package dev;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.StringReader;
 import java.nio.ByteBuffer;
 import java.util.Iterator;
 
-import org.junit.Test;
 import org.apache.jena.atlas.lib.FileOps;
-import org.openjena.riot.Lang;
-import org.openjena.riot.RiotLoader;
-
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.query.Dataset;
-import com.hp.hpl.jena.query.ReadWrite;
-import com.hp.hpl.jena.sparql.core.DatasetGraph;
-import com.hp.hpl.jena.sparql.core.Quad;
-import com.hp.hpl.jena.tdb.TDBFactory;
-import com.hp.hpl.jena.tdb.base.file.Location;
-import com.hp.hpl.jena.tdb.lib.NodeLib;
+import org.apache.jena.graph.Node;
+import org.apache.jena.graph.NodeFactory;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.query.ReadWrite;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.sparql.core.DatasetGraph;
+import org.apache.jena.sparql.core.DatasetGraphFactory;
+import org.apache.jena.sparql.core.Quad;
+import org.apache.jena.tdb.TDBFactory;
+import org.apache.jena.tdb.base.file.Location;
+import org.apache.jena.tdb.lib.NodeLib;
+import org.junit.Test;
 
 public class TestTDBUnicode {
 
@@ -44,23 +46,42 @@ public class TestTDBUnicode {
     private static final String path = "target/tdb";
     
     @Test public void test_01() {
-        RiotLoader.datasetFromString(str_triple, Lang.NTRIPLES, null);
-        RiotLoader.datasetFromString(str_triple, Lang.TURTLE, null);
+        DatasetGraph dsg2 = DatasetGraphFactory.createMem();
+        RDFDataMgr.read(dsg2, new StringReader(str_triple), null, Lang.NTRIPLES);
+        RDFDataMgr.read(dsg2, new StringReader(str_triple), null, Lang.TURTLE);
     }
     
     @Test public void test_02() {
-        RiotLoader.datasetFromString(str_triple, Lang.NTRIPLES, null);
-        RiotLoader.datasetFromString(str_triple, Lang.TURTLE, null);
-    }
-    
-    @Test public void test_03() {
         FileOps.clearDirectory( path );
-        Location location = new Location ( path );
+        Location location = Location.create ( path );
         Dataset dataset = TDBFactory.createDataset ( location );
         dataset.begin ( ReadWrite.WRITE );
         try {
             DatasetGraph dsg = dataset.asDatasetGraph();
-            DatasetGraph dsg2 = RiotLoader.datasetFromString ( str_triple, Lang.TURTLE, null );
+            DatasetGraph dsg2 = DatasetGraphFactory.createMem();
+            RDFDataMgr.read(dsg2, new StringReader(str_triple), null, Lang.TURTLE);
+            Iterator<Quad> quads = dsg2.find();
+            while ( quads.hasNext() ) {
+                Quad quad = quads.next();
+                dsg.add(quad);
+            }
+            dataset.commit();
+        } catch ( Exception e ) {
+            e.printStackTrace(System.err);
+            if ( dataset.isInTransaction() ) dataset.abort();
+        } finally {
+            dataset.end();
+        }
+        assertEquals ( 1, dataset.getDefaultModel().size() );
+    }
+    
+    @Test public void test_03() {
+        Dataset dataset = TDBFactory.createDataset ();
+        dataset.begin ( ReadWrite.WRITE );
+        try {
+            DatasetGraph dsg = dataset.asDatasetGraph();
+            DatasetGraph dsg2 = DatasetGraphFactory.createMem(); 
+            RDFDataMgr.read(dsg2, new StringReader(str_triple), null, Lang.TURTLE);
             Iterator<Quad> quads = dsg2.find();
             while ( quads.hasNext() ) {
                 Quad quad = quads.next();
@@ -77,30 +98,9 @@ public class TestTDBUnicode {
     }
     
     @Test public void test_04() {
-        Dataset dataset = TDBFactory.createDataset ();
-        dataset.begin ( ReadWrite.WRITE );
-        try {
-            DatasetGraph dsg = dataset.asDatasetGraph();
-            DatasetGraph dsg2 = RiotLoader.datasetFromString ( str_triple, Lang.TURTLE, null );
-            Iterator<Quad> quads = dsg2.find();
-            while ( quads.hasNext() ) {
-                Quad quad = quads.next();
-                dsg.add(quad);
-            }
-            dataset.commit();
-        } catch ( Exception e ) {
-            e.printStackTrace(System.err);
-            if ( dataset.isInTransaction() ) dataset.abort();
-        } finally {
-            dataset.end();
-        }
-        assertEquals ( 1, dataset.getDefaultModel().size() );
-    }
-    
-    @Test public void test_06() {
         // see: http://www.unicode.org/charts/PDF/UD800.pdf
-        String s = "\uDAE0"; 
-        Node literal = Node.createLiteral(s); 
+        String s = "\uDAE0";
+        Node literal = NodeFactory.createLiteral(s); 
         ByteBuffer bb = NodeLib.encode(literal); 
         NodeLib.decode(bb);
     }
