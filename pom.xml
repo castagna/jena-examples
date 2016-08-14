@@ -10,11 +10,11 @@
 
   <properties>
     <jena.version>3.0.0</jena.version>
-    <java-rdfa.version>0.4.2-RC2</java-rdfa.version>
+    <java-rdfa.version>0.4.2</java-rdfa.version>
     <slf4j.version>1.6.4</slf4j.version>
     <log4j.version>1.2.16</log4j.version>
     <jruby.version>1.6.5</jruby.version>
-    <poi.version>3.8-beta5</poi.version>
+    <poi.version>3.12</poi.version>
     <junit.version>4.11</junit.version>
     <jdk.version>1.8</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -39,11 +39,6 @@
     <dependency>
       <groupId>net.rootdev</groupId>
       <artifactId>java-rdfa</artifactId>
-      <version>${java-rdfa.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>net.rootdev</groupId>
-      <artifactId>java-rdfa-htmlparser</artifactId>
       <version>${java-rdfa.version}</version>
     </dependency>
     
