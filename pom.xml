@@ -15,7 +15,7 @@
     <log4j.version>1.2.16</log4j.version>
     <jruby.version>1.6.5</jruby.version>
     <poi.version>3.12</poi.version>
-    <junit.version>4.11</junit.version>
+    <junit.version>4.13.1</junit.version>
     <jdk.version>1.8</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
